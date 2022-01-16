@@ -7,9 +7,14 @@ def game():
 def guess():
     global y
     y = input("your guess: ")
-    global z
-    z = int(y)
-    compare()  
+    list =  ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    if y in list:
+        global z
+        z = int(y)
+        compare()
+    else:
+        print ("i said a number from 1 to 10, you idiot! try again.")
+        guess()
 def compare():
     if x == z:
         print("good job!", x, "is the number!")
