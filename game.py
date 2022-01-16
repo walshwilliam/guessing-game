@@ -4,6 +4,16 @@ def game():
     x = random.randint(1, 10)
     print("guess a number from 1 to 10.")
     guess()
+def replay():
+    print("play again?")
+    global a
+    a = input("y/n: ")
+    if "y" in a:
+        print(" ")
+        game()
+    else:
+        print("fine. bye bye then!")
+        print(" ")
 def guess():
     global y
     y = input("your guess: ")
@@ -18,15 +28,11 @@ def guess():
 def compare():
     if x == z:
         print("good job!", x, "is the number!")
-        print("play again?")
-        a = input("y/n: ")
-        if "y" in a:
-            print(" ")
-            game()
-        else:
-            print("fine. bye bye then!")
-            print(" ")
-    if x != z:
-        print("wrong! guess again")
+        replay()
+    if x < z:
+        print("wrong, too high. guess again")
+        guess()
+    if x > z:
+        print("wrong, too low. guess again")
         guess()
 game()
